@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stories of hope from Kagera, Tanzania. Read testimonials from the people whose lives have been changed by the Tumaini Fund USA.">
+  <title>Stories | Tumaini Fund USA</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ================================================================
+       STORIES PAGE STYLES
+       ================================================================ */
+
+    /* --- Filter Bar --- */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-xs);
+      padding: var(--space-lg) 0;
+    }
+
+    .filter-btn {
+      background: var(--warm-white);
+      color: var(--text-secondary);
+      border: 1px solid rgba(212, 168, 67, 0.25);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      background: rgba(212, 168, 67, 0.1);
+      border-color: var(--gold);
+      color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+      background: var(--gold);
+      color: var(--dark-earth);
+      border-color: var(--gold);
+    }
+
+    /* --- Masonry Grid --- */
+    .stories-grid {
+      column-count: 3;
+      column-gap: var(--space-md);
+      padding-bottom: var(--space-2xl);
+    }
+
+    .stories-grid .testimonial-card {
+      break-inside: avoid;
+      margin-bottom: var(--space-md);
+      display: inline-block;
+      width: 100%;
+    }
+
+    .stories-grid .testimonial-card.hidden {
+      display: none;
+    }
+
+    /* --- Story Card (third-person variant) --- */
+    .testimonial-card.story-card::before {
+      content: '\2726';
+      color: var(--terracotta);
+      font-size: 2.5rem;
+    }
+
+    .testimonial-card.story-card blockquote {
+      font-style: normal;
+      font-family: var(--font-body);
+    }
+
+    @media (max-width: 1023px) {
+      .stories-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 639px) {
+      .stories-grid {
+        column-count: 1;
+      }
+
+      .filter-bar {
+        gap: 6px;
+      }
+
+      .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="logo" href="index.html">
+        <img src="images/boys-on-rock.avif" alt="Tumaini Fund USA" width="48" height="48">
+        <span class="logo-text">
+          <span class="logo-title">The Tumaini Fund</span>
+          <span class="logo-subtitle">USA</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html" class="active">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="donate.html" class="btn-donate-header">Donate</a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact.html">Our Impact</a>
+    <a href="stories.html">Stories</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html" class="btn-donate-mobile">Donate</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Testimonials</span>
+        <h1>Stories of Hope</h1>
+        <p>Real voices from Kagera, Tanzania</p>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- STORIES SECTION -->
+    <section style="padding: var(--space-2xl) 0; background: var(--sand);">
+      <div class="container">
+
+        <!-- Filter Bar -->
+        <div class="filter-bar fade-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="education">Education</button>
+          <button class="filter-btn" data-filter="water">Water</button>
+          <button class="filter-btn" data-filter="health">Health</button>
+          <button class="filter-btn" data-filter="community">Community</button>
+          <button class="filter-btn" data-filter="vocational">Vocational</button>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="stories-grid">
+
+          <!-- 1. Jackson Samweli — Education -->
+          <div class="testimonial-card fade-up" data-category="education">
+            <blockquote>"I had no hope to progress but now I have a career. I started being sponsored by Tumaini at the beginning of secondary school. I would not be a teacher now if it wasn't for the support I have been given. God bless you."</blockquote>
+            <cite>Jackson Samweli</cite>
+            <span class="tag">Education</span>
+          </div>
+
+          <!-- 2. Committee Members — Water -->
+          <div class="testimonial-card fade-up" data-category="water">
+            <blockquote>"The shallow well in Kanyinya has reduced the distance we have to carry water. The health of our children is much better and so our medical bills have reduced. The children have better attendance at school. Our clothes are cleaner. The well has so many benefits for the village."</blockquote>
+            <cite>Committee Members, Kanyinya Parish</cite>
+            <span class="tag">Water</span>
+          </div>
+
+          <!-- 3. Elia Ethan — Education -->
+          <div class="testimonial-card fade-up" data-category="education">
+            <blockquote>"My name is Elia Ethan and I have been supported by the Tumaini Fund through secondary school. I am now a first year medical student and I am very happy to be able to go to University in Dar Es Salaam. Without support I would have to stay in my village and work on the land. I want to become a Psychiatrist."</blockquote>
+            <cite>Elia Ethan, Medical Student</cite>
+            <span class="tag">Education</span>
+          </div>
+
+          <!-- 4. Mariamu — Health -->
+          <div class="testimonial-card fade-up" data-category="health">
+            <blockquote>"I am so grateful for the mosquito nets, three of my children have Malaria and it costs a lot of money for their treatment. I have two other children and I hope the net will prevent them getting sick."</blockquote>
+            <cite>Mariamu</cite>
+            <span class="tag">Health</span>
+          </div>
+
+          <!-- 5. Bishop Jackton — Community -->
+          <div class="testimonial-card fade-up" data-category="community">
+            <blockquote>"The Tumaini Fund has made a huge difference to the lives of the people in my Diocese. I am so pleased that, through the love of Jesus, we can work in partnership for the benefit of the people of Lweru."</blockquote>
+            <cite>Bishop Jackton</cite>
+            <span class="tag">Community</span>
+          </div>
+
+          <!-- 6. Dr. Matson — Health -->
+          <div class="testimonial-card fade-up" data-category="health">
+            <blockquote>"The ultra-sound equipment has been so important for my work with pregnant women. I can perform scans now and I have been able to identify a number ante-natal problems that otherwise may have led to miscarriage or still birth."</blockquote>
+            <cite>Dr. Matson, Kayanga Health Center</cite>
+            <span class="tag">Health</span>
+          </div>
+
+          <!-- 7. Wilbrod — Vocational -->
+          <div class="testimonial-card fade-up" data-category="vocational">
+            <blockquote>"This is the second carpenter's workshop I have started for the Tumaini Fund. The first one is in Murgwanza and here in Kayanga the students are working very hard to learn. I am very happy that you have bought more tools for the students to learn woodworking skills."</blockquote>
+            <cite>Wilbrod</cite>
+            <span class="tag">Vocational</span>
+          </div>
+
+          <!-- 8. Mike Kiondo — Community -->
+          <div class="testimonial-card fade-up" data-category="community">
+            <blockquote>"This is an excellent community project. We have been able to divert some of the water from the spring to make this fish pond. We will be able to grow Tilapia fish so that the people will have a source of protein food."</blockquote>
+            <cite>Mike Kiondo, Tumaini Area Coordinator - Chato</cite>
+            <span class="tag">Community</span>
+          </div>
+
+          <!-- 9. Levocatus — Water -->
+          <div class="testimonial-card fade-up" data-category="water">
+            <blockquote>"I feel blessed that I am being sponsored by Guernsey Water through the Tumaini Fund, to train to be a water quality technician. I will work very hard to pass my exams so that I can work in a water testing laboratory."</blockquote>
+            <cite>Levocatus</cite>
+            <span class="tag">Water</span>
+          </div>
+
+          <!-- 10. Ivan Nyamkara — Education -->
+          <div class="testimonial-card fade-up" data-category="education">
+            <blockquote>"I am glad the Tumaini Fund is helping me. I am in the 5th year at secondary school and I want to go to University. I want to be a leader of my country. I like geography, history and politics."</blockquote>
+            <cite>Ivan Nyamkara</cite>
+            <span class="tag">Education</span>
+          </div>
+
+          <!-- 11. Maria — Vocational -->
+          <div class="testimonial-card fade-up" data-category="vocational">
+            <blockquote>"I am sad that I did not pass the exam to go to secondary school. But I thank God that I came to the tailoring school to learn to sew. I want to have my own sewing machine."</blockquote>
+            <cite>Maria</cite>
+            <span class="tag">Vocational</span>
+          </div>
+
+          <!-- 12. Ruth Kinniburgh — Community -->
+          <div class="testimonial-card fade-up" data-category="community">
+            <blockquote>"I am working with the Lusahunga widows group to develop a sustainable agricultural model. We have planted maize to make flour, sunflowers to make oil as a cash crop, and a range of nutritious vegetables."</blockquote>
+            <cite>Ruth Kinniburgh, Horticulturalist</cite>
+            <span class="tag">Community</span>
+          </div>
+
+          <!-- 13. Reginard Ibrahim — Education (story card, third person) -->
+          <div class="testimonial-card story-card fade-up" data-category="education">
+            <blockquote>Reginard Ibrahim is the son of a witch-doctor. Reginard became a Christian at secondary school. His Father then converted to Islam, but Reginald refused, so his Father put him out of the home. Tumaini took over Reginard's fees and he became Headboy of his school, then successfully trained as a nurse.</blockquote>
+            <cite>Reginard Ibrahim</cite>
+            <span class="tag">Education</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="container fade-up">
+        <h2>Join Us in This Mission</h2>
+        <p>For just $10, you can protect a child from malaria. For $25, you can send a child to school.</p>
+        <a href="donate.html" class="btn btn-donate btn-lg">Donate Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div class="kanga-divider kanga-divider--thin"></div>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-about">
+        <h3>"Tumaini" Means Hope</h3>
+        <p>Helping 200,000 AIDS orphans in Kagera, Tanzania survive and thrive through education, clean water, housing, and healthcare.</p>
+        <p class="footer-stat">97% of every dollar goes directly to communities.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:Info@TumainiFundUSA.org">Info@TumainiFundUSA.org</a></p>
+        <p>Naples, Florida, USA</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Change a Life Today</h4>
+        <p>A mosquito net is just $10. A student sponsorship is $25.</p>
+        <a href="donate.html" class="btn btn-primary btn-sm">Donate Now</a>
+      </div>
+    </div>
+    <div class="footer-scripture">
+      <blockquote>"Whatever you did for one of the least of these brothers of mine, you did for me."</blockquote>
+      <cite>— Jesus, Matthew 25:40</cite>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tumaini Fund USA. All rights reserved. 501(c)(3) nonprofit organization (EIN: 27-1017104).</p>
+    </div>
+  </footer>
+
+  <!-- Filter Functionality -->
+  <script>
+    (function () {
+      var filterButtons = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.stories-grid .testimonial-card');
+
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = this.getAttribute('data-filter');
+
+          // Update active button
+          filterButtons.forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+
+          // Show/hide cards
+          cards.forEach(function (card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

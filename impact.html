@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the 9 focus areas where Tumaini Fund USA transforms lives in Kagera, Tanzania — from education and clean water to housing and disease prevention.">
+  <title>Our Impact | Tumaini Fund USA</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ================================================================
+       IMPACT PAGE STYLES
+       ================================================================ */
+
+    /* --- Focus Areas Grid --- */
+    .focus-areas {
+      padding: var(--space-2xl) 0;
+      background: var(--sand);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 640px) {
+      .focus-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .focus-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .focus-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      border: 1px solid rgba(212, 168, 67, 0.12);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .focus-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+
+    .focus-card:hover::before {
+      opacity: 1;
+    }
+
+    .focus-card-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(192, 92, 60, 0.08);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-md);
+      transition: background 0.3s ease;
+    }
+
+    .focus-card:hover .focus-card-icon {
+      background: rgba(192, 92, 60, 0.14);
+    }
+
+    .focus-card-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--terracotta);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .focus-card h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .focus-card-stat {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .focus-card p {
+      font-size: var(--text-small);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex-grow: 1;
+      margin-bottom: var(--space-md);
+    }
+
+    .focus-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--terracotta);
+      transition: color 0.3s ease, gap 0.3s ease;
+    }
+
+    .focus-card-link:hover {
+      color: var(--terracotta-dark);
+      gap: 10px;
+    }
+
+    .focus-card-link svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* --- Impact Stats Row --- */
+    .impact-stats {
+      padding: var(--space-xl) 0;
+      background: var(--dark-earth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impact-stats::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(192, 92, 60, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(212, 168, 67, 0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .impact-stats .container {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="logo" href="index.html">
+        <img src="images/boys-on-rock.avif" alt="Tumaini Fund USA" width="48" height="48">
+        <span class="logo-text">
+          <span class="logo-title">The Tumaini Fund</span>
+          <span class="logo-subtitle">USA</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html" class="active">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="donate.html" class="btn-donate-header">Donate</a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact.html">Our Impact</a>
+    <a href="stories.html">Stories</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html" class="btn-donate-mobile">Donate</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Our Impact</span>
+        <h1>Our Impact</h1>
+        <p>9 focus areas transforming lives in Kagera</p>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- FOCUS AREAS -->
+    <section class="focus-areas">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Focus Areas</span>
+          <h2>Where We Make a Difference</h2>
+          <p>From education to clean water, each focus area addresses a critical need in Kagera.</p>
+        </div>
+
+        <div class="focus-grid">
+
+          <!-- 1. Education -->
+          <div class="focus-card fade-up">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+            </div>
+            <h3>Education</h3>
+            <span class="focus-card-stat">25,000 orphans supported</span>
+            <p>Education is essential for these children to break the cycle of poverty. Although elementary education is free in Tanzania, students need uniforms, paper, books and pencils — items most families cannot afford on $95/year. Tumaini supplies each orphan with school supplies, and provides secondary school fees for the top 10% who qualify.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 2. Clean Water -->
+          <div class="focus-card fade-up fade-up-delay-1">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3>Clean Water</h3>
+            <span class="focus-card-stat">60+ wells built</span>
+            <p>24,000 children under five die each year in Tanzania from dirty water. Water sources for most villages are filthy ponds shared by animals and humans. A shallow well at a cost of $5,000 can provide clean water for an entire village. Over the past 14 years, Tumaini supporters have funded over 60 shallow and deep wells.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 3. Sustainable Living -->
+          <div class="focus-card fade-up fade-up-delay-2">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M7 20l4-16M17 20V8l-5-4"/><path d="M17 8c2.5 0 4 1.5 4 4s-1.5 4-4 4"/><path d="M7 20c-2.5 0-4-1.5-4-4s1.5-4 4-4"/><path d="M11 4c1.5-1 3.5-1 5 0"/></svg>
+            </div>
+            <h3>Sustainable Living</h3>
+            <span class="focus-card-stat">500 people served by Kibehe project</span>
+            <p>Subsistence farming is how most families survive in Kagera. With climate change and unpredictable rains, crops often die before harvest. Tumaini has funded irrigation projects using solar-powered pumps and above-ground storage tanks, bringing health and economic benefit to entire communities.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 4. Vocational Training -->
+          <div class="focus-card fade-up">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Vocational Training</h3>
+            <span class="focus-card-stat">2 training schools</span>
+            <p>Tumaini operates vocational training schools for tailoring and carpentry, mainly for orphans who leave after primary school. Families have been helped to set up micro-financed businesses such as rearing chickens, goats, cows, beekeeping and fish ponds. Tumaini loans start-up costs at low interest rates.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 5. House Building -->
+          <div class="focus-card fade-up fade-up-delay-1">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>House Building</h3>
+            <span class="focus-card-stat">$2,800 builds a home</span>
+            <p>Housing is basic wattle and daub — families share a single room and roofs of leaves collapse in heavy rain. Tumaini builds new homes with foundations of sand and cement, mud brick walls, tin roofs, wood-framed windows with mosquito mesh, and 3 rooms for family privacy.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 6. Transportation -->
+          <div class="focus-card fade-up fade-up-delay-2">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h3"/></svg>
+            </div>
+            <h3>Transportation</h3>
+            <span class="focus-card-stat">$125 per bicycle</span>
+            <p>The three-mile walk to and from school can be replaced with a bicycle, saving students an average of two hours per day. Grades improve dramatically. Tumaini has also provided motorcycles for social workers and vehicles for transporting supplies across the 4 offices in Kagera.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 7. Disease Prevention -->
+          <div class="focus-card fade-up">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Disease Prevention</h3>
+            <span class="focus-card-stat">3,000 children die daily from malaria in Africa</span>
+            <p>Protection from malaria-carrying mosquitoes is a top priority. Thousands of mosquito nets have been provided. New homes include mosquito protection on windows. Tumaini also works on clean water treatment systems and hygienic sanitation including toilets in schools.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 8. Sewing for Hope -->
+          <div class="focus-card fade-up fade-up-delay-1">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M6 2l.01 4M6 6l6 6"/><circle cx="6" cy="18" r="4"/><path d="M20 4l-2 2-4-4"/><path d="M18 6l-6 6"/></svg>
+            </div>
+            <h3>Sewing for Hope</h3>
+            <span class="focus-card-stat">3,500+ dresses sent</span>
+            <p>The mission of Sewing for Hope is to bring love, joy, and dignity to orphans by providing them with a new, hand-made dress and coordinating t-shirt. These clothes bring great joy and pride — children are eager to venture out in society with dignity. Volunteers sew across the United States.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 9. Future Goals -->
+          <div class="focus-card fade-up fade-up-delay-2">
+            <div class="focus-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="8 6 12 2 16 6"/></svg>
+            </div>
+            <h3>Future Goals</h3>
+            <span class="focus-card-stat">4,800+ people to be served</span>
+            <p>Tumaini is partnering with Naples North Rotary Club and Water Mission Tanzania to expand clean water distribution. The new project will quadruple water storage to 40,000 liters and add 7 new taps, with hand washing stations at schools as part of a WASH program.</p>
+            <a href="donate.html" class="focus-card-link">Donate to this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- IMPACT STATS ROW -->
+    <section class="impact-stats">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-card fade-up">
+            <span class="stat-number">25,000+</span>
+            <span class="stat-label">Orphans Supported</span>
+          </div>
+          <div class="stat-card fade-up fade-up-delay-1">
+            <span class="stat-number">60+</span>
+            <span class="stat-label">Wells Built</span>
+          </div>
+          <div class="stat-card fade-up fade-up-delay-2">
+            <span class="stat-number">3,500+</span>
+            <span class="stat-label">Dresses Sent</span>
+          </div>
+          <div class="stat-card fade-up fade-up-delay-3">
+            <span class="stat-number">180</span>
+            <span class="stat-label">Social Workers</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="container fade-up">
+        <h2>Join Us in This Mission</h2>
+        <p>For just $10, you can protect a child from malaria. For $25, you can send a child to school.</p>
+        <a href="donate.html" class="btn btn-donate btn-lg">Donate Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div class="kanga-divider kanga-divider--thin"></div>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-about">
+        <h3>"Tumaini" Means Hope</h3>
+        <p>Helping 200,000 AIDS orphans in Kagera, Tanzania survive and thrive through education, clean water, housing, and healthcare.</p>
+        <p class="footer-stat">97% of every dollar goes directly to communities.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:Info@TumainiFundUSA.org">Info@TumainiFundUSA.org</a></p>
+        <p>Naples, Florida, USA</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Change a Life Today</h4>
+        <p>A mosquito net is just $10. A student sponsorship is $25.</p>
+        <a href="donate.html" class="btn btn-primary btn-sm">Donate Now</a>
+      </div>
+    </div>
+    <div class="footer-scripture">
+      <blockquote>"Whatever you did for one of the least of these brothers of mine, you did for me."</blockquote>
+      <cite>— Jesus, Matthew 25:40</cite>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tumaini Fund USA. All rights reserved. 501(c)(3) nonprofit organization (EIN: 27-1017104).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

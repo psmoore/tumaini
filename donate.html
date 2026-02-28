@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Donate to Tumaini Fund USA. From $10 mosquito nets to $3,000 water wells — every gift transforms lives in Kagera, Tanzania. 97% goes directly to communities.">
+  <title>Donate | Tumaini Fund USA</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ================================================================
+       DONATE PAGE STYLES
+       ================================================================ */
+
+    /* --- Featured Section --- */
+    .featured-donations {
+      padding: var(--space-xl) 0;
+      background: var(--sand);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 640px) {
+      .featured-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .featured-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .featured-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+    }
+
+    .featured-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+
+    .featured-card .gift-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: var(--space-md);
+    }
+
+    .featured-card .gift-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .featured-amount {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--terracotta);
+      margin-bottom: 4px;
+    }
+
+    .featured-name {
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .featured-desc {
+      font-size: var(--text-small);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: var(--space-md);
+    }
+
+    .featured-card .btn { width: 100%; }
+
+    /* --- All Options Section --- */
+    .all-donations {
+      padding: var(--space-2xl) 0;
+    }
+
+    .donations-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 640px) {
+      .donations-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .donations-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .donation-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md) var(--space-md) var(--space-md);
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      border: 1px solid rgba(212, 168, 67, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .donation-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .donation-card-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(192, 92, 60, 0.08);
+      border-radius: var(--radius-md);
+    }
+
+    .donation-card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--terracotta);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .donation-card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .donation-card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .donation-card-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+
+    .donation-card-price {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--terracotta);
+      white-space: nowrap;
+    }
+
+    .donation-card-desc {
+      font-size: var(--text-small);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: var(--space-sm);
+    }
+
+    .donation-card .btn {
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+    }
+
+    /* --- Gift Options --- */
+    .gift-options {
+      padding: var(--space-xl) 0 var(--space-2xl);
+      background: var(--sand);
+    }
+
+    .gift-options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .gift-options-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .gift-option-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      text-align: center;
+      border: 1px solid rgba(212, 168, 67, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .gift-option-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gift-option-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .gift-option-card p {
+      font-size: var(--text-small);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+    }
+
+    .gift-option-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* --- Why Give Strip --- */
+    .why-give {
+      background: var(--dark-earth);
+      padding: var(--space-lg) 0;
+    }
+
+    .why-give-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .why-give-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .why-give-item {
+      padding: var(--space-sm);
+    }
+
+    .why-give-item strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .why-give-item span {
+      font-size: var(--text-small);
+      color: rgba(245, 237, 224, 0.65);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="logo" href="index.html">
+        <img src="images/boys-on-rock.avif" alt="Tumaini Fund USA" width="48" height="48">
+        <span class="logo-text">
+          <span class="logo-title">The Tumaini Fund</span>
+          <span class="logo-subtitle">USA</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="donate.html" class="btn-donate-header">Donate</a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact.html">Our Impact</a>
+    <a href="stories.html">Stories</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html" class="btn-donate-mobile">Donate</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Give Hope</span>
+        <h1>Donate to Tumaini Fund</h1>
+        <p>Every dollar makes a difference. Choose how you want to change a life today.</p>
+      </div>
+    </section>
+
+    <!-- WHY GIVE STRIP -->
+    <section class="why-give">
+      <div class="container">
+        <div class="why-give-grid">
+          <div class="why-give-item fade-up">
+            <strong>97%</strong>
+            <span>Goes directly to communities</span>
+          </div>
+          <div class="why-give-item fade-up fade-up-delay-1">
+            <strong>501(c)(3)</strong>
+            <span>Tax-deductible donations</span>
+          </div>
+          <div class="why-give-item fade-up fade-up-delay-2">
+            <strong>20+ Years</strong>
+            <span>Of proven impact</span>
+          </div>
+          <div class="why-give-item fade-up fade-up-delay-3">
+            <strong>25,000+</strong>
+            <span>Orphans already helped</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED DONATIONS -->
+    <section class="featured-donations">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Most Popular</span>
+          <h2>Start Here</h2>
+          <p>These four gifts are our most requested — and each one saves or transforms lives.</p>
+        </div>
+        <div class="featured-grid">
+
+          <div class="featured-card fade-up fade-up-delay-1">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="featured-amount">$10</div>
+            <div class="featured-name">Mosquito Net</div>
+            <p class="featured-desc">One mosquito net distribution and training to protect a child from a needless, preventable death from malaria.</p>
+            <a href="#" class="btn btn-primary">Donate $10</a>
+          </div>
+
+          <div class="featured-card fade-up fade-up-delay-2">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div class="featured-amount">$25</div>
+            <div class="featured-name">Sponsor a Student</div>
+            <p class="featured-desc">Provide two sets of clothes, access to elementary school, school uniforms, books, pens and pencils, a mosquito net, and the support of our Parish workers available 24/7.</p>
+            <a href="#" class="btn btn-primary">Donate $25</a>
+          </div>
+
+          <div class="featured-card fade-up fade-up-delay-3">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h3"/></svg>
+            </div>
+            <div class="featured-amount">$125</div>
+            <div class="featured-name">Bicycle</div>
+            <p class="featured-desc">A bicycle can change the life of a child by providing transportation to far-away schools and to fresh water, saving 2 hours every day.</p>
+            <a href="#" class="btn btn-primary">Donate $125</a>
+          </div>
+
+          <div class="featured-card fade-up fade-up-delay-4">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div class="featured-amount">$3,000</div>
+            <div class="featured-name">Clean Water Well</div>
+            <p class="featured-desc">Provides a village with a clean water well — life-saving access to safe drinking water for an entire community.</p>
+            <a href="#" class="btn btn-primary">Donate $3,000</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ALL 16 DONATION OPTIONS -->
+    <section class="all-donations">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">All Ways to Give</span>
+          <h2>Choose Your Impact</h2>
+          <p>From $10 to transformational gifts — every contribution changes lives.</p>
+        </div>
+
+        <div class="donations-grid">
+
+          <!-- 1. Mosquito Net $10 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Mosquito Net</span>
+                <span class="donation-card-price">$10</span>
+              </div>
+              <p class="donation-card-desc">One mosquito net distribution and training to protect a child from a needless, preventable death from malaria.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 2. Daftari Notebook $10 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Daftari Notebooks</span>
+                <span class="donation-card-price">$10</span>
+              </div>
+              <p class="donation-card-desc">One set of 10 daftari notebooks which is necessary for a child to attend school for one year.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 3. Solar Lamp $16 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Solar Lamp</span>
+                <span class="donation-card-price">$16</span>
+              </div>
+              <p class="donation-card-desc">A solar lamp provides light to study by in a house with no electricity.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 4. Elementary Student Sponsor $25 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Elementary Student Sponsor</span>
+                <span class="donation-card-price">$25</span>
+              </div>
+              <p class="donation-card-desc">Provide two sets of clothes, access to elementary school, school uniforms, books, pens and pencils, a mosquito net, and the support of our Parish workers available 24/7.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 5. One Time Donation $50 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">One Time Donation</span>
+                <span class="donation-card-price">$50</span>
+              </div>
+              <p class="donation-card-desc">Every contribution to the Tumaini Fund USA makes a positive impact in the lives of the villagers we serve.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 6. Secondary Student Sponsor $100 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Secondary Student Sponsor</span>
+                <span class="donation-card-price">$100</span>
+              </div>
+              <p class="donation-card-desc">Provides a year of secondary school for an orphan; includes school uniform, books &amp; supplies and school fees.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 7. Bicycle $125 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h3"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Bicycle</span>
+                <span class="donation-card-price">$125</span>
+              </div>
+              <p class="donation-card-desc">A bicycle can change the life of a child by providing transportation to far-away schools and to fresh water.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 8. Sponsor a Family $500 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Sponsor a Family</span>
+                <span class="donation-card-price">$500</span>
+              </div>
+              <p class="donation-card-desc">Sponsor a family of 5 for one year providing food, clothing, shelter and support of Tumaini Fund.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 9. Firebrick Home $2,800 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Build a Firebrick Home</span>
+                <span class="donation-card-price">$2,800</span>
+              </div>
+              <p class="donation-card-desc">Provides a family with a new home; built of mud brick walls, tin roof, and wood framed windows, shutters, and doors.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 10. Clean Water Well $3,000 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Clean Water Well</span>
+                <span class="donation-card-price">$3,000</span>
+              </div>
+              <p class="donation-card-desc">Provides a village with a clean water well — life-saving access to safe drinking water.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 11. Motorcycle $3,200 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M5 16v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M12 12V8"/><circle cx="12" cy="5" r="3"/><path d="M3 20h18"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Motorcycle</span>
+                <span class="donation-card-price">$3,200</span>
+              </div>
+              <p class="donation-card-desc">Provides social workers the ability to commute over large distances to reach orphans in remote parishes.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 12. Toyota Hilux Truck $23,000 -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Toyota Hilux Truck</span>
+                <span class="donation-card-price">$23,000</span>
+              </div>
+              <p class="donation-card-desc">Provides Tumaini Fund volunteers the ability to transport materials and personnel across remote Kagera.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+          <!-- 13. Open Donation -->
+          <div class="donation-card fade-up">
+            <div class="donation-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="donation-card-body">
+              <div class="donation-card-header">
+                <span class="donation-card-name">Open Donation</span>
+                <span class="donation-card-price">Any Amount</span>
+              </div>
+              <p class="donation-card-desc">Every contribution makes a positive impact. Select your own one-time amount or make it a recurring donation.</p>
+              <a href="#" class="btn btn-primary btn-sm">Donate</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GIFT OPTIONS (Memory, Honor, Celebration) -->
+    <section class="gift-options">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Give in Someone's Name</span>
+          <h2>Meaningful Gifts</h2>
+          <p>Honor, celebrate, or remember a loved one with a gift that changes lives.</p>
+        </div>
+        <div class="gift-options-grid">
+
+          <div class="gift-option-card fade-up fade-up-delay-1">
+            <div class="gift-option-icon">&#x1F56F;</div>
+            <h3>Gift in Memory</h3>
+            <p>Honor the memory of a loved one with a Gift in Memory to the Tumaini Fund USA. Let their memory help provide a better life for a child.</p>
+            <a href="#" class="btn btn-primary">Give in Memory</a>
+          </div>
+
+          <div class="gift-option-card fade-up fade-up-delay-2">
+            <div class="gift-option-icon">&#x2B50;</div>
+            <h3>Gift in Honor</h3>
+            <p>Honor someone special with a Gift to the Tumaini Fund USA. Your contribution in their name will help make a significant difference in the lives of many.</p>
+            <a href="#" class="btn btn-primary">Give in Honor</a>
+          </div>
+
+          <div class="gift-option-card fade-up fade-up-delay-3">
+            <div class="gift-option-icon">&#x1F389;</div>
+            <h3>Gift in Celebration</h3>
+            <p>Looking for a unique gift to celebrate a birthday, accomplishment or another occasion? Make a donation in celebration and give something truly meaningful.</p>
+            <a href="#" class="btn btn-primary">Give in Celebration</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="container fade-up">
+        <h2>Every Gift Gives Hope</h2>
+        <p>97% of your donation goes directly to the children and communities of Kagera, Tanzania.</p>
+        <a href="mailto:Info@TumainiFundUSA.org" class="btn btn-donate btn-lg">Questions? Contact Us</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div class="kanga-divider kanga-divider--thin"></div>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-about">
+        <h3>"Tumaini" Means Hope</h3>
+        <p>Helping 200,000 AIDS orphans in Kagera, Tanzania survive and thrive through education, clean water, housing, and healthcare.</p>
+        <p class="footer-stat">97% of every dollar goes directly to communities.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:Info@TumainiFundUSA.org">Info@TumainiFundUSA.org</a></p>
+        <p>Naples, Florida, USA</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Change a Life Today</h4>
+        <p>A mosquito net is just $10. A student sponsorship is $25.</p>
+        <a href="donate.html" class="btn btn-primary btn-sm">Donate Now</a>
+      </div>
+    </div>
+    <div class="footer-scripture">
+      <blockquote>"Whatever you did for one of the least of these brothers of mine, you did for me."</blockquote>
+      <cite>— Jesus, Matthew 25:40</cite>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tumaini Fund USA. All rights reserved. 501(c)(3) nonprofit organization (EIN: 27-1017104).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

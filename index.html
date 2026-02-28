@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tumaini Fund USA helps 200,000 AIDS orphans in Kagera, Tanzania survive and thrive. 97% of donations go directly to communities. Give hope today.">
+  <meta property="og:title" content="Tumaini Fund USA — Hope for Kagera">
+  <meta property="og:description" content="Help 200,000 AIDS orphans in Tanzania. 97% of every dollar reaches communities.">
+  <meta property="og:image" content="images/boys-on-rock.avif">
+  <meta property="og:type" content="website">
+  <title>Tumaini Fund USA — Hope for Kagera, Tanzania</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ================================================================
+       HOMEPAGE-SPECIFIC STYLES
+       ================================================================ */
+
+    /* --- HERO --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px var(--space-md) var(--space-xl);
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('images/boys-on-rock.avif');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(42, 31, 23, 0.35) 0%,
+        rgba(42, 31, 23, 0.5) 40%,
+        rgba(42, 31, 23, 0.85) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      animation: fadeSlideUp 0.8s 0.3s ease forwards;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: var(--text-hero);
+      font-weight: 900;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      animation: fadeSlideUp 0.8s 0.5s ease forwards;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+      font-weight: 300;
+      color: rgba(245, 237, 224, 0.85);
+      line-height: 1.7;
+      max-width: 650px;
+      margin: 0 auto var(--space-lg);
+      opacity: 0;
+      animation: fadeSlideUp 0.8s 0.7s ease forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      justify-content: center;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s 0.9s ease forwards;
+    }
+
+    .hero-stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
+      margin-top: var(--space-xl);
+      max-width: 700px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s 1.1s ease forwards;
+    }
+
+    @media (min-width: 768px) {
+      .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .hero-stat {
+      text-align: center;
+      padding: var(--space-sm);
+      border: 1px solid rgba(212, 168, 67, 0.2);
+      border-radius: var(--radius-md);
+      background: rgba(42, 31, 23, 0.4);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(245, 237, 224, 0.6);
+      margin-top: 2px;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- ADVISOR SECTION --- */
+    .advisor {
+      padding: var(--space-2xl) 0;
+      background: var(--sand);
+    }
+
+    .advisor-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .advisor-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+    }
+
+    .advisor-image {
+      position: relative;
+    }
+
+    .advisor-image img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto;
+    }
+
+    .advisor-image::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 60%;
+      height: 60%;
+      border: 3px solid var(--gold);
+      border-radius: var(--radius-lg);
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    .advisor-text h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h2);
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .advisor-text h2 em {
+      font-style: normal;
+      color: var(--terracotta);
+    }
+
+    .advisor-meaning {
+      font-family: var(--font-accent);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: var(--space-md);
+    }
+
+    .advisor-text p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-sm);
+    }
+
+    .advisor-highlight {
+      display: inline-block;
+      background: rgba(212, 168, 67, 0.15);
+      padding: 2px 10px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      color: var(--rich-brown);
+    }
+
+    /* --- GIFT SECTION (donation preview) --- */
+    .gift {
+      padding: var(--space-2xl) 0;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .gift-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .gift-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg) var(--space-md);
+      text-align: center;
+      border: 1px solid rgba(212, 168, 67, 0.15);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gift-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      border-color: var(--gold);
+    }
+
+    .gift-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(192, 92, 60, 0.1);
+      border-radius: 50%;
+      margin-bottom: var(--space-sm);
+    }
+
+    .gift-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--terracotta);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .gift-amount {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--terracotta);
+      margin-bottom: 4px;
+    }
+
+    .gift-name {
+      font-weight: 700;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .gift-desc {
+      font-size: var(--text-small);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .gift-card .btn {
+      margin-top: var(--space-md);
+      width: 100%;
+    }
+
+    .gift-see-all {
+      text-align: center;
+      margin-top: var(--space-lg);
+    }
+
+    .gift-see-all a {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--terracotta);
+      border-bottom: 2px solid var(--terracotta);
+      padding-bottom: 2px;
+      transition: all 0.3s;
+    }
+
+    .gift-see-all a:hover {
+      color: var(--terracotta-dark);
+      border-bottom-color: var(--terracotta-dark);
+    }
+
+    /* --- OBSTACLES SECTION --- */
+    .obstacles {
+      padding: var(--space-2xl) 0;
+      background: var(--dark-earth);
+      color: var(--text-on-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .obstacles::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 10% 30%, rgba(192, 92, 60, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 70%, rgba(212, 168, 67, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .obstacle-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      align-items: center;
+      margin-bottom: var(--space-2xl);
+      position: relative;
+      z-index: 1;
+    }
+
+    .obstacle-item:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+      .obstacle-item {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+
+      .obstacle-item:nth-child(even) .obstacle-visual {
+        order: 2;
+      }
+
+      .obstacle-item:nth-child(even) .obstacle-content {
+        order: 1;
+      }
+    }
+
+    .obstacle-visual {
+      position: relative;
+    }
+
+    .obstacle-num {
+      font-family: var(--font-heading);
+      font-size: 6rem;
+      font-weight: 900;
+      color: rgba(212, 168, 67, 0.08);
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      line-height: 1;
+      z-index: 0;
+    }
+
+    .obstacle-icon-wrap {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212, 168, 67, 0.1);
+      border: 2px solid rgba(212, 168, 67, 0.2);
+      border-radius: 50%;
+      margin-bottom: var(--space-md);
+      position: relative;
+      z-index: 1;
+    }
+
+    .obstacle-icon-wrap svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .obstacle-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      color: var(--cream);
+      margin-bottom: var(--space-xs);
+      position: relative;
+      z-index: 1;
+    }
+
+    .obstacle-desc {
+      font-size: 1rem;
+      color: rgba(245, 237, 224, 0.65);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+      position: relative;
+      z-index: 1;
+    }
+
+    .obstacle-content .testimonial-card {
+      max-width: 100%;
+    }
+
+    /* --- TRIUMPH SECTION --- */
+    .triumph {
+      padding: var(--space-2xl) 0;
+      background: var(--sand);
+      text-align: center;
+    }
+
+    .triumph-quote {
+      max-width: 750px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .triumph-quote blockquote {
+      font-family: var(--font-accent);
+      font-size: clamp(1.4rem, 2vw + 0.5rem, 2rem);
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+
+    .triumph-quote blockquote::before {
+      content: '\201C';
+      font-family: var(--font-accent);
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.25;
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 1;
+    }
+
+    .triumph-quote cite {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--terracotta);
+    }
+
+    .triumph-quote cite span {
+      display: block;
+      font-weight: 400;
+      font-size: var(--text-small);
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="logo" href="index.html">
+        <img src="images/boys-on-rock.avif" alt="Tumaini Fund USA" width="48" height="48">
+        <span class="logo-text">
+          <span class="logo-title">The Tumaini Fund</span>
+          <span class="logo-subtitle">USA</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="donate.html" class="btn-donate-header">Donate</a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact.html">Our Impact</a>
+    <a href="stories.html">Stories</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html" class="btn-donate-mobile">Donate</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============ SECTION 1: HERO / INCITING EVENT ============ -->
+    <section class="hero">
+      <div class="hero-bg" role="img" aria-label="Group of young boys sitting together on a rock in Kagera, Tanzania"></div>
+      <div class="hero-content">
+        <span class="hero-label">Tumaini means Hope in Swahili</span>
+        <h1>200,000 Children<br>Need <em>Hope</em></h1>
+        <p class="hero-subtitle">In Kagera, Tanzania, AIDS orphans face extreme poverty, preventable disease, and no path to education. They are waiting for someone like you.</p>
+        <div class="hero-cta">
+          <a href="donate.html" class="btn btn-donate btn-lg">Give Hope Today</a>
+          <a href="about.html" class="btn btn-secondary btn-lg">Learn Our Story</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">200,000</span>
+          <span class="hero-stat-label">AIDS Orphans</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">30%</span>
+          <span class="hero-stat-label">HIV Rate After Conflict</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">Top 10</span>
+          <span class="hero-stat-label">Poorest Nation</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">97%</span>
+          <span class="hero-stat-label">Funds Reach Communities</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 2: THE WISE ADVISOR ============ -->
+    <section class="advisor">
+      <div class="container">
+        <div class="advisor-grid fade-up">
+          <div class="advisor-image">
+            <img src="images/dr-wilson.avif" alt="Dr. Susan Wilson, MBE, Founder and CEO of the Tumaini Fund" loading="lazy">
+          </div>
+          <div class="advisor-text">
+            <span class="section-label">Your Guide</span>
+            <h2>Meet <em>Dr. Susan Wilson</em>, MBE</h2>
+            <p class="advisor-meaning">"Tumaini" means Hope in Swahili — and hope is exactly what Dr. Wilson has brought to Kagera for over 20 years.</p>
+            <p>In 2001, Dr. Susan Wilson and her husband traveled to Kagera, in northwest Tanzania, to work as medical doctors. They were devastated by the abject poverty and the 200,000 children orphaned by the AIDS crisis — a crisis intensified when HIV rates surged from 2% to 30% after widespread violence by militias in the 1990s.</p>
+            <p>Dr. Wilson dedicated her life to these children, founding the Tumaini Fund UK in 2003 and the Tumaini Fund USA in 2009. Today, <span class="advisor-highlight">25,000 orphans</span> are being supported — and the goal is to reach every one of the 200,000.</p>
+            <p>In 2013, Dr. Wilson was awarded the <span class="advisor-highlight">Most Excellent Order of the British Empire (MBE)</span> by Prince William for her outstanding service.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 3: THE GIFT (donation preview) ============ -->
+    <section class="gift">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">The Gift of Hope</span>
+          <h2>Your Gift Makes a Real Difference</h2>
+          <p>Every dollar has a direct, measurable impact on a child's life in Kagera.</p>
+        </div>
+
+        <div class="gift-grid">
+          <div class="gift-card fade-up fade-up-delay-1">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22c1-3 6-6 6-10a6 6 0 0 0-12 0c0 4 5 7 6 10z"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="gift-amount">$10</div>
+            <div class="gift-name">Mosquito Net</div>
+            <p class="gift-desc">Protect a child from a needless, preventable death from malaria.</p>
+            <a href="donate.html" class="btn btn-primary btn-sm">Donate $10</a>
+          </div>
+
+          <div class="gift-card fade-up fade-up-delay-2">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div class="gift-amount">$25</div>
+            <div class="gift-name">Sponsor a Student</div>
+            <p class="gift-desc">Provide a child with school uniform, books, pencils, and a mosquito net.</p>
+            <a href="donate.html" class="btn btn-primary btn-sm">Donate $25</a>
+          </div>
+
+          <div class="gift-card fade-up fade-up-delay-3">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="gift-amount">$125</div>
+            <div class="gift-name">Bicycle</div>
+            <p class="gift-desc">Save a child 2 hours daily — transportation to school and clean water.</p>
+            <a href="donate.html" class="btn btn-primary btn-sm">Donate $125</a>
+          </div>
+
+          <div class="gift-card fade-up fade-up-delay-4">
+            <div class="gift-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div class="gift-amount">$3,000</div>
+            <div class="gift-name">Clean Water Well</div>
+            <p class="gift-desc">Provide an entire village with access to safe, clean drinking water.</p>
+            <a href="donate.html" class="btn btn-primary btn-sm">Donate $3,000</a>
+          </div>
+        </div>
+
+        <div class="gift-see-all fade-up">
+          <a href="donate.html">See all 16 ways to give &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- ============ SECTION 4: OBSTACLES OVERCOME ============ -->
+    <section class="obstacles">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Obstacles Overcome</span>
+          <h2>Hope Is Winning</h2>
+          <p style="color: rgba(245,237,224,0.7);">Real challenges. Real solutions. Real voices from Kagera.</p>
+        </div>
+
+        <!-- Obstacle 1: Education -->
+        <div class="obstacle-item fade-up">
+          <div class="obstacle-visual">
+            <span class="obstacle-num">01</span>
+            <div class="obstacle-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+            </div>
+            <h3 class="obstacle-title">Education</h3>
+            <p class="obstacle-desc">Children had no path to school — no uniforms, no books, no pencils. The average family income is $95 per year. Now, 25,000 orphans are being educated through Tumaini's sponsorship programs.</p>
+          </div>
+          <div class="obstacle-content">
+            <div class="testimonial-card">
+              <blockquote>"I had no hope to progress but now I have a career. I started being sponsored by Tumaini at the beginning of secondary school. I would not be a teacher now if it wasn't for the support I have been given. God bless you."</blockquote>
+              <cite>— Jackson Samweli</cite>
+              <span class="tag">Education</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Obstacle 2: Clean Water -->
+        <div class="obstacle-item fade-up">
+          <div class="obstacle-visual">
+            <span class="obstacle-num">02</span>
+            <div class="obstacle-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3 class="obstacle-title">Clean Water</h3>
+            <p class="obstacle-desc">Villages relied on filthy ponds shared with animals. 24,000 children under five die each year in Tanzania from dirty water. Tumaini has built over 60 wells, bringing clean water to entire communities.</p>
+          </div>
+          <div class="obstacle-content">
+            <div class="testimonial-card">
+              <blockquote>"The shallow well in Kanyinya has reduced the distance we have to carry water. The health of our children is much better and so our medical bills have reduced. The children have better attendance at school."</blockquote>
+              <cite>— Committee Members, Kanyinya Parish</cite>
+              <span class="tag">Water</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Obstacle 3: Disease Prevention -->
+        <div class="obstacle-item fade-up">
+          <div class="obstacle-visual">
+            <span class="obstacle-num">03</span>
+            <div class="obstacle-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="obstacle-title">Disease Prevention</h3>
+            <p class="obstacle-desc">Malaria kills nearly 3,000 African children every day. A single mosquito net — costing just $10 — can protect a child's life. Tumaini has distributed thousands of nets and built homes with mosquito-proof windows.</p>
+          </div>
+          <div class="obstacle-content">
+            <div class="testimonial-card">
+              <blockquote>"I am so grateful for the mosquito nets, three of my children have Malaria and it costs a lot of money for their treatment. I have two other children and I hope the net will prevent them getting sick."</blockquote>
+              <cite>— Mariamu</cite>
+              <span class="tag">Health</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Obstacle 4: Futures -->
+        <div class="obstacle-item fade-up">
+          <div class="obstacle-visual">
+            <span class="obstacle-num">04</span>
+            <div class="obstacle-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="obstacle-title">Building Futures</h3>
+            <p class="obstacle-desc">Orphans with no family had no future beyond subsistence farming. Today, Tumaini-sponsored students are becoming doctors, teachers, nurses, and skilled tradespeople — leaders of their communities.</p>
+          </div>
+          <div class="obstacle-content">
+            <div class="testimonial-card">
+              <blockquote>"My name is Elia Ethan and I have been supported by the Tumaini Fund through secondary school. I am now a first year medical student and I am very happy to be able to go to University in Dar Es Salaam. Without support I would have to stay in my village and work on the land. I want to become a Psychiatrist."</blockquote>
+              <cite>— Elia Ethan, Medical Student</cite>
+              <span class="tag">Education</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- ============ SECTION 5: TRIUMPH ============ -->
+    <section class="triumph">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">The Triumph of Hope</span>
+        </div>
+
+        <div class="triumph-quote fade-up">
+          <blockquote>"The Tumaini Fund has made a huge difference to the lives of the people in my Diocese. I am so pleased that, through the love of Jesus, we can work in partnership for the benefit of the people of Lweru."</blockquote>
+          <cite>Bishop Jackton <span>Diocese of Lweru, Kagera, Tanzania</span></cite>
+        </div>
+
+        <div class="stats-row fade-up">
+          <div class="stat-card">
+            <span class="stat-number" data-target="25000" data-suffix="+">0</span>
+            <span class="stat-label">Orphans Supported</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="60" data-suffix="+">0</span>
+            <span class="stat-label">Wells Built</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="20" data-suffix="+">0</span>
+            <span class="stat-label">Years of Service</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="97" data-suffix="%">0</span>
+            <span class="stat-label">Funds to Communities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 6: CTA BANNER ============ -->
+    <section class="cta-banner">
+      <div class="container fade-up">
+        <h2>Be Part of the Story</h2>
+        <p>For just $10, you can protect a child from malaria. For $25, you can send a child to school. Every gift gives hope.</p>
+        <a href="donate.html" class="btn btn-donate btn-lg">Donate Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="kanga-divider kanga-divider--thin"></div>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-about">
+        <h3>"Tumaini" Means Hope</h3>
+        <p>Helping 200,000 AIDS orphans in Kagera, Tanzania survive and thrive through education, clean water, housing, and healthcare.</p>
+        <p class="footer-stat">97% of every dollar goes directly to communities.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:Info@TumainiFundUSA.org">Info@TumainiFundUSA.org</a></p>
+        <p>Naples, Florida, USA</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Change a Life Today</h4>
+        <p>A mosquito net is just $10. A student sponsorship is $25.</p>
+        <a href="donate.html" class="btn btn-primary btn-sm">Donate Now</a>
+      </div>
+    </div>
+    <div class="footer-scripture">
+      <blockquote>"Whatever you did for one of the least of these brothers of mine, you did for me."</blockquote>
+      <cite>— Jesus, Matthew 25:40</cite>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tumaini Fund USA. All rights reserved. 501(c)(3) nonprofit organization (EIN: 27-1017104).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

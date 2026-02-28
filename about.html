@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about the Tumaini Fund USA, founded by Dr. Susan Wilson MBE, and our mission to help 200,000 AIDS orphans in Kagera, Tanzania.">
+  <title>About | Tumaini Fund USA</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ================================================================
+       ABOUT PAGE STYLES
+       ================================================================ */
+
+    /* --- Founder Section --- */
+    .founder {
+      padding: var(--space-2xl) 0;
+      background: var(--sand);
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .founder-grid {
+        grid-template-columns: 1fr 1.3fr;
+      }
+    }
+
+    .founder-image-wrap {
+      position: relative;
+    }
+
+    .founder-image-wrap img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto;
+    }
+
+    .founder-mbe-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--gold);
+      color: var(--dark-earth);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: var(--text-small);
+      font-weight: 700;
+      margin-top: var(--space-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .founder-text h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h2);
+      margin-bottom: var(--space-sm);
+    }
+
+    .founder-text h2 em {
+      font-style: normal;
+      color: var(--terracotta);
+    }
+
+    .founder-role {
+      font-family: var(--font-accent);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: var(--space-md);
+    }
+
+    .founder-text p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: var(--space-sm);
+    }
+
+    .founder-text p strong {
+      color: var(--text-primary);
+    }
+
+    /* --- Crisis Section --- */
+    .crisis {
+      padding: var(--space-2xl) 0;
+      background: var(--dark-earth);
+      color: var(--text-on-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .crisis::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(192, 92, 60, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(212, 168, 67, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .crisis-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .crisis h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h2);
+      color: var(--cream);
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .crisis-intro {
+      font-size: 1.15rem;
+      color: rgba(245, 237, 224, 0.8);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+      line-height: 1.7;
+    }
+
+    .crisis-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .crisis-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .crisis-item {
+      background: rgba(61, 46, 34, 0.6);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      border: 1px solid rgba(212, 168, 67, 0.1);
+    }
+
+    .crisis-item h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      color: var(--gold);
+      margin-bottom: var(--space-xs);
+    }
+
+    .crisis-item p {
+      font-size: 1rem;
+      color: rgba(245, 237, 224, 0.7);
+      line-height: 1.7;
+    }
+
+    /* --- Location Section --- */
+    .location {
+      padding: var(--space-2xl) 0;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .location-text {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .location-text p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-sm);
+    }
+
+    .location-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--warm-white);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(212, 168, 67, 0.2);
+      margin-top: var(--space-md);
+      font-size: 1rem;
+    }
+
+    .location-highlight strong {
+      color: var(--terracotta);
+      font-size: 1.2rem;
+    }
+
+    /* --- Mission Section --- */
+    .mission {
+      padding: var(--space-2xl) 0;
+      background: var(--sand);
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    @media (min-width: 768px) {
+      .mission-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .mission-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      border-top: 4px solid var(--terracotta);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mission-card:nth-child(2) {
+      border-top-color: var(--deep-green);
+    }
+
+    .mission-card h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .mission-card p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* --- Support List --- */
+    .support-list {
+      padding: var(--space-xl) 0 var(--space-2xl);
+    }
+
+    .support-items {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .support-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--warm-white);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--gold);
+    }
+
+    .support-item-num {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      width: 30px;
+    }
+
+    .support-item p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* --- Scripture Banner --- */
+    .scripture-banner {
+      padding: var(--space-2xl) 0;
+      background: var(--dark-earth);
+      text-align: center;
+    }
+
+    .scripture-banner blockquote {
+      font-family: var(--font-accent);
+      font-size: clamp(1.3rem, 2vw + 0.5rem, 2rem);
+      font-style: italic;
+      color: var(--gold);
+      max-width: 700px;
+      margin: 0 auto var(--space-sm);
+      line-height: 1.5;
+    }
+
+    .scripture-banner cite {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 1rem;
+      color: rgba(245, 237, 224, 0.5);
+    }
+
+    .scripture-extra {
+      margin-top: var(--space-lg);
+      font-family: var(--font-accent);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(245, 237, 224, 0.45);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="logo" href="index.html">
+        <img src="images/boys-on-rock.avif" alt="Tumaini Fund USA" width="48" height="48">
+        <span class="logo-text">
+          <span class="logo-title">The Tumaini Fund</span>
+          <span class="logo-subtitle">USA</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="donate.html" class="btn-donate-header">Donate</a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact.html">Our Impact</a>
+    <a href="stories.html">Stories</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html" class="btn-donate-mobile">Donate</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Our Story</span>
+        <h1>About The Tumaini Fund</h1>
+        <p>20 years of hope in Kagera, Tanzania</p>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- FOUNDER SECTION -->
+    <section class="founder">
+      <div class="container">
+        <div class="founder-grid fade-up">
+          <div class="founder-image-wrap">
+            <img src="images/dr-wilson.avif" alt="Dr. Susan Wilson, MBE, Founder and CEO of the Tumaini Fund" loading="lazy">
+            <div class="founder-mbe-badge">
+              <span>&#x1F451;</span> MBE — Awarded by Prince William, 2013
+            </div>
+          </div>
+          <div class="founder-text">
+            <span class="section-label">The Founder</span>
+            <h2>Dr. Susan <em>Wilson</em>, MBE</h2>
+            <p class="founder-role">Founder and CEO of the Tumaini Fund</p>
+            <p>Dr. Susan Wilson's mission work in Tanzania, one of the ten poorest countries in the world, started in <strong>2001</strong> when she and her family spent four months in Kagera, in the North West Province of Tanzania. She and her husband worked as medical doctors in a local hospital.</p>
+            <p>The family found themselves shocked at the <strong>abject poverty</strong> faced by the local Tanzanians. They were even more shocked at the desperate lives faced by AIDS widows and orphans, a result of the widespread violence by the Rwandan, Burundian and Ugandan militia in the 1990s. It was estimated that there were approximately <strong>200,000 orphans</strong> at that time.</p>
+            <p>She has dedicated herself to helping these widows and orphans through the non-profit organizations: <strong>Tumaini Fund, UK</strong> established in 2003, the <strong>Tumaini Fund, USA</strong> established in 2009, Tumaini Fund Scotland, and Tumaini Fund Canada.</p>
+            <p>Dr. Wilson was given the <strong>Most Excellent Order of the British Empire (MBE)</strong> award by Prince William in 2013 for her outstanding service to alleviate the suffering of so many people in Kagera.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE CRISIS -->
+    <section class="crisis">
+      <div class="container crisis-content">
+        <span class="section-label fade-up" style="display: block; text-align: center;">The Crisis</span>
+        <h2 class="fade-up">Why Kagera Needs Help</h2>
+        <p class="crisis-intro fade-up">"Tumaini" is the Swahili word for Hope — it is also the name of a charity that seeks to alleviate the terrible suffering of AIDS widows and orphans in Kagera, the most North West province of Tanzania.</p>
+
+        <div class="crisis-grid">
+          <div class="crisis-item fade-up">
+            <h3>The HIV Crisis</h3>
+            <p>HIV/Congo spread from 2-8% to 30% following the attacks on women by Rwandan and Burundian soldiers in the late 1990s. There are now 200,000 orphans in the region. Tanzania is one of the 10 poorest countries in the world.</p>
+          </div>
+          <div class="crisis-item fade-up">
+            <h3>Subsistence Farming</h3>
+            <p>Ninety percent of Kagera's population are subsistence farmers who survive off their small plots of land with a single crop, expecting a small harvest annually to support 6 to 8 family members. Education is the only way to get out of this cycle.</p>
+          </div>
+          <div class="crisis-item fade-up">
+            <h3>Water</h3>
+            <p>Water sources for most villages are filthy ponds often used by animals and humans alike. Dysentery and diarrhea are common. Most deaths of children under 1 year of age are due to diarrheal illness from contaminated water.</p>
+          </div>
+          <div class="crisis-item fade-up">
+            <h3>Housing</h3>
+            <p>Housing is basic wattle and daub built with clay. The roofs, made of grass or banana leaves, cannot withstand the heavy rains. Whole families share a single room, and cooking in the same house creates health and fire hazards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- LOCATION -->
+    <section class="location">
+      <div class="container">
+        <span class="section-label fade-up">Where We Work</span>
+        <h2 class="fade-up" style="font-family: var(--font-heading); font-size: var(--text-h2); margin-bottom: var(--space-md);">The African Region of Kagera</h2>
+        <div class="location-text fade-up">
+          <p>Kagera is in the far northwest of Tanzania, bordering Rwanda, Burundi, and Uganda, with Lake Victoria to the east. It is furthest from the source of wealth — far from the tourist trail and the capital Dar Es Salaam.</p>
+          <p>The Tumaini Fund operates from four offices across Kagera — in Kayanga, Muleba, Chato, and Murgwanza — with 180 social workers serving orphans and widows in surrounding parishes.</p>
+          <div class="location-highlight">
+            <span>Kagera is an area the size of Northern Ireland with a <strong>life expectancy of 43 years</strong> and a former HIV prevalence of ~30%.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="mission">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">What Guides Us</span>
+          <h2>Mission &amp; Vision</h2>
+        </div>
+        <div class="mission-grid">
+          <div class="mission-card fade-up">
+            <h3>Our Mission</h3>
+            <p>The Tumaini Fund USA's mission is to help the estimated 200,000 impoverished AIDS orphans in the Kagera region of Northwest Tanzania to survive and become self-sufficient by helping to meet their basic needs such as nutritional support, clothing, housing, mosquito nets, access to clean water &amp; educational opportunities.</p>
+          </div>
+          <div class="mission-card fade-up">
+            <h3>Our Vision</h3>
+            <p>To develop a healthy, sustainable community in the North-West region of Tanzania. The Tumaini Fund is a Christian Charity which, through faith in Jesus and the power of prayer, raises funds to support the widows and orphans in North-West Tanzania.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT LIST -->
+    <section class="support-list">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">How We Help</span>
+          <h2>Our Support Consists Of</h2>
+        </div>
+        <div class="support-items">
+          <div class="support-item fade-up">
+            <span class="support-item-num">1</span>
+            <p>Adult head-of-family, decent housing, improved farming and nutrition</p>
+          </div>
+          <div class="support-item fade-up fade-up-delay-1">
+            <span class="support-item-num">2</span>
+            <p>AIDS testing and treatment</p>
+          </div>
+          <div class="support-item fade-up fade-up-delay-2">
+            <span class="support-item-num">3</span>
+            <p>Income generation — microfinance projects and education to the level each child can achieve</p>
+          </div>
+          <div class="support-item fade-up fade-up-delay-3">
+            <span class="support-item-num">4</span>
+            <p>Clean water and hygienic sanitation</p>
+          </div>
+          <div class="support-item fade-up fade-up-delay-4">
+            <span class="support-item-num">5</span>
+            <p>Improving vehicular capability in a remote, mountainous region where most driving is off-road</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCRIPTURE BANNER -->
+    <section class="scripture-banner">
+      <div class="container fade-up">
+        <blockquote>"Whatever you did for one of the least of these brothers of mine, you did for me."</blockquote>
+        <cite>— Jesus, Matthew 25:40</cite>
+        <p class="scripture-extra">"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11</p>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="container fade-up">
+        <h2>Join Us in This Mission</h2>
+        <p>For just $10, you can protect a child from malaria. For $25, you can send a child to school.</p>
+        <a href="donate.html" class="btn btn-donate btn-lg">Donate Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div class="kanga-divider kanga-divider--thin"></div>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-about">
+        <h3>"Tumaini" Means Hope</h3>
+        <p>Helping 200,000 AIDS orphans in Kagera, Tanzania survive and thrive through education, clean water, housing, and healthcare.</p>
+        <p class="footer-stat">97% of every dollar goes directly to communities.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:Info@TumainiFundUSA.org">Info@TumainiFundUSA.org</a></p>
+        <p>Naples, Florida, USA</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Change a Life Today</h4>
+        <p>A mosquito net is just $10. A student sponsorship is $25.</p>
+        <a href="donate.html" class="btn btn-primary btn-sm">Donate Now</a>
+      </div>
+    </div>
+    <div class="footer-scripture">
+      <blockquote>"Whatever you did for one of the least of these brothers of mine, you did for me."</blockquote>
+      <cite>— Jesus, Matthew 25:40</cite>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tumaini Fund USA. All rights reserved. 501(c)(3) nonprofit organization (EIN: 27-1017104).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

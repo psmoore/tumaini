@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with Tumaini Fund USA. Learn how to donate, volunteer, or connect with our mission to help AIDS orphans in Kagera, Tanzania.">
+  <title>Contact | Tumaini Fund USA</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ================================================================
+       CONTACT PAGE STYLES
+       ================================================================ */
+
+    /* --- Contact Section --- */
+    .contact-section {
+      padding: var(--space-2xl) 0;
+      background: var(--sand);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+    }
+
+    /* --- Contact Info (Left Column) --- */
+    .contact-info h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h2);
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-info h2 em {
+      font-style: normal;
+      color: var(--terracotta);
+    }
+
+    .contact-info > p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .contact-detail-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--warm-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      border: 1px solid rgba(212, 168, 67, 0.2);
+    }
+
+    .contact-detail-text h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .contact-detail-text p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .contact-detail-text a {
+      color: var(--terracotta);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-detail-text a:hover {
+      text-decoration: underline;
+    }
+
+    .nonprofit-note {
+      background: var(--warm-white);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(212, 168, 67, 0.2);
+      border-left: 4px solid var(--gold);
+      margin-top: var(--space-lg);
+    }
+
+    .nonprofit-note p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .nonprofit-note strong {
+      color: var(--text-primary);
+    }
+
+    /* --- Contact Form (Right Column) --- */
+    .contact-form-wrap {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--terracotta);
+    }
+
+    .contact-form-wrap h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .form-group {
+      margin-bottom: var(--space-md);
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-primary);
+      background: var(--sand);
+      border: 2px solid rgba(192, 92, 60, 0.15);
+      border-radius: var(--radius-md);
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(61, 46, 34, 0.4);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(192, 92, 60, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form-wrap .btn {
+      width: 100%;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* --- Ways to Get Involved --- */
+    .get-involved {
+      padding: var(--space-2xl) 0;
+      background: var(--cream);
+    }
+
+    .involved-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .involved-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .involved-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .involved-card {
+      background: var(--warm-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      border-top: 4px solid var(--terracotta);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .involved-card:nth-child(2) {
+      border-top-color: var(--deep-green);
+    }
+
+    .involved-card:nth-child(3) {
+      border-top-color: var(--gold);
+    }
+
+    .involved-card:nth-child(4) {
+      border-top-color: var(--dark-earth);
+    }
+
+    .involved-card-icon {
+      font-size: 2rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .involved-card h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .involved-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+      flex-grow: 1;
+    }
+
+    .involved-card .btn {
+      align-self: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .involved-card a:not(.btn) {
+      color: var(--terracotta);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .involved-card a:not(.btn):hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="logo" href="index.html">
+        <img src="images/boys-on-rock.avif" alt="Tumaini Fund USA" width="48" height="48">
+        <span class="logo-text">
+          <span class="logo-title">The Tumaini Fund</span>
+          <span class="logo-subtitle">USA</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="donate.html" class="btn-donate-header">Donate</a>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact.html">Our Impact</a>
+    <a href="stories.html">Stories</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html" class="btn-donate-mobile">Donate</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Contact</span>
+        <h1>Connect With Us</h1>
+        <p>Join the Tumaini family</p>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- LEFT: Contact Information -->
+          <div class="contact-info fade-up">
+            <span class="section-label">Get In Touch</span>
+            <h2>We'd Love to <em>Hear</em> From You</h2>
+            <p>Whether you have questions about our work in Kagera, want to get involved, or simply want to learn more about how you can make a difference, we're here to connect.</p>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">&#9993;</div>
+              <div class="contact-detail-text">
+                <h4>Email</h4>
+                <p><a href="mailto:Info@TumainiFundUSA.org">Info@TumainiFundUSA.org</a></p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon">&#9900;</div>
+              <div class="contact-detail-text">
+                <h4>Location</h4>
+                <p>Naples, Florida, USA</p>
+              </div>
+            </div>
+
+            <div class="nonprofit-note">
+              <p>Tumaini Fund USA is a registered <strong>501(c)(3) nonprofit organization</strong>. All donations are tax-deductible to the fullest extent allowed by law.</p>
+              <p><strong>EIN: 27-1017104</strong></p>
+            </div>
+          </div>
+
+          <!-- RIGHT: Contact Form -->
+          <div class="contact-form-wrap fade-up">
+            <h3>Send Us a Message</h3>
+            <form action="mailto:Info@TumainiFundUSA.org" method="POST" enctype="text/plain">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="kanga-divider"></div>
+
+    <!-- WAYS TO GET INVOLVED -->
+    <section class="get-involved">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Make a Difference</span>
+          <h2>Ways to Get Involved</h2>
+        </div>
+        <div class="involved-grid">
+
+          <div class="involved-card fade-up">
+            <div class="involved-card-icon">&#10084;</div>
+            <h3>Donate</h3>
+            <p>Give directly to children and communities in Kagera. From $10 mosquito nets to transformational gifts.</p>
+            <a href="donate.html" class="btn btn-primary btn-sm">Give Now</a>
+          </div>
+
+          <div class="involved-card fade-up">
+            <div class="involved-card-icon">&#127760;</div>
+            <h3>Spread the Word</h3>
+            <p>Share our mission with friends, family, and your community. Follow us and help us reach more people.</p>
+          </div>
+
+          <div class="involved-card fade-up">
+            <div class="involved-card-icon">&#9986;</div>
+            <h3>Sewing for Hope</h3>
+            <p>Join our volunteer sewing program making dresses and sweaters for orphans. Visit <a href="https://sewingforhope.com" target="_blank" rel="noopener noreferrer">sewingforhope.com</a></p>
+          </div>
+
+          <div class="involved-card fade-up">
+            <div class="involved-card-icon">&#128591;</div>
+            <h3>Pray for Kagera</h3>
+            <p>Keep the children, families, and communities of Kagera in your prayers.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="container fade-up">
+        <h2>Join Us in This Mission</h2>
+        <p>For just $10, you can protect a child from malaria. For $25, you can send a child to school.</p>
+        <a href="donate.html" class="btn btn-donate btn-lg">Donate Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div class="kanga-divider kanga-divider--thin"></div>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-about">
+        <h3>"Tumaini" Means Hope</h3>
+        <p>Helping 200,000 AIDS orphans in Kagera, Tanzania survive and thrive through education, clean water, housing, and healthcare.</p>
+        <p class="footer-stat">97% of every dollar goes directly to communities.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="impact.html">Our Impact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:Info@TumainiFundUSA.org">Info@TumainiFundUSA.org</a></p>
+        <p>Naples, Florida, USA</p>
+      </div>
+      <div class="footer-cta">
+        <h4>Change a Life Today</h4>
+        <p>A mosquito net is just $10. A student sponsorship is $25.</p>
+        <a href="donate.html" class="btn btn-primary btn-sm">Donate Now</a>
+      </div>
+    </div>
+    <div class="footer-scripture">
+      <blockquote>"Whatever you did for one of the least of these brothers of mine, you did for me."</blockquote>
+      <cite>— Jesus, Matthew 25:40</cite>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tumaini Fund USA. All rights reserved. 501(c)(3) nonprofit organization (EIN: 27-1017104).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
