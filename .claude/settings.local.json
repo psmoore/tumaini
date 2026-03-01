@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.tumainifundusa.org)",
+      "WebFetch(domain:www.tumainifund.org.uk)",
+      "WebFetch(domain:www.saintpaulsnaples.org)",
+      "WebFetch(domain:tumainifundusa.wordpress.com)",
+      "WebFetch(domain:saintjohntheevangelist.com)"
+    ]
+  }
+}
